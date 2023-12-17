@@ -1,0 +1,639 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ECE 5725 | Final Project Balloon Ninja</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="starter-template.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!-- <script src="../../assets/js/ie-emulation-modes-warning.js"></script> -->
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#obj">Project Objective</a></li>
+            <li><a href="#design">Design</a></li>
+            <li><a href="#testing">Testing</a></li>
+            <li><a href="#result">Result</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#future work">Future Work</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div class="starter-template">
+        <h1>Ballon Ninja</h1>
+        <p class="lead">ECE 5725 Final Project<br>A Project By Yunxuan Xu (yx595) & Dengyu Tu(dt538).</p>
+      </div>
+
+      <hr>
+      <div class="center-block">
+          <iframe width="640" height="360" src="https://www.youtube.com/embed?v=et91Gea6CPk" frameborder="0" allowfullscreen></iframe>
+          <h4 style="text-align:center;">Demonstration Video</h4>
+      </div>
+
+      <hr id="intro">
+
+      <div style="text-align:center;font-size: 18px;">
+              <h2>Introduction</h2>
+              <p style="text-align: left;padding: 0px 30px;"> Welcome to "Balloon Ninja," a dynamic and interactive game that illustrates the practical applications of embedded systems. Built with the Raspberry Pi 4, this game not only provides entertainment but also serves as a testament to the power of integrated hardware and software. It utilizes real-time processing and color detection to create an immersive experience, where players slice through virtual water balloons with the swipe of a finger or the motion of a colored object. </p>
+              <p style="text-align: left;padding: 0px 30px;"> Developed as part of an embedded systems curriculum, "Balloon Ninja" exemplifies how multithreading and computer vision can be harnessed in a playful yet complex application. This project invites players to experience firsthand how embedded technology can be applied in gaming, providing a glimpse into its real-world utility. </p>
+      </div>
+
+    <hr id='obj'>
+      <div style="text-align:center;font-size: 18px;">
+          <h2>Project Objective:</h2>
+          <p style="text-align: left;padding: 0px 30px;">The project aims to demonstrate the capabilities of embedded systems by developing an interactive game that employs multithreading for efficient real-time processing and OpenCV for dynamic color tracking. The game, designed for the Raspberry Pi platform, showcases the integration of hardware and software to create an engaging user experience that responds instantly to physical interactions.</p>
+      </div>
+
+
+    <hr id='design'>
+
+    <div style="text-align:center;font-size: 18px;">
+          <h2>Design</h2>
+          <h4>hardware</h4>
+          <p style="text-align: left;padding: 0px 30px;"> We connected a Raspberry Pi Camera with the Raspberry Pi 4 through the camera port and use a cardboard to stablize the camera.</p>
+          <div style="text-align:center;">
+            <img class="img-rounded" src="pics/hardware.jpg" alt="hardware" style="width:50%;">
+            <h4>hardware design</h4>
+          </div>
+          <p style="text-align: left;padding: 0px 30px;"><b>Initial Concept and UI Design:</b></p>
+          <p style="text-align: left;padding: 0px 30px;">In the "Initial Concept and UI Design" phase of "Balloon Ninja," we focused on developing a user interface that seamlessly transitions between different game levels. This stage involved creating a layout adaptable for diverse screen sizes, ensuring a consistent and intuitive user experience. Special attention was given to the unique display characteristics of piTFT screens and standard monitors, balancing functionality and aesthetics. The objective was to establish a solid foundation for user interaction, setting the stage for the subsequent integration of game mechanics. An early UI design is shown below.</p>
+          <div style="text-align:center;">
+            <img class="img-rounded" src="pics/UI.png" alt="UI design" style="width:50%;">
+            <h4>Initial UI design</h4>
+          </div>
+          <div class="col-md-6" style="font-size:16px">
+            <img class="img-rounded" src="pics/First.jpeg" alt="Dengyu's photo" width="240" height="240">
+            <h3>First Layer</h3>
+        </div>
+        <div class="col-md-6" style="font-size:16px">
+            <img class="img-rounded" src="pics/Second.jpeg" alt="Dengyu's photo" width="240" height="240">
+            <h3>Second Layer</h3>
+        </div>
+        <div class="col-md-6" style="font-size:16px">
+            <img class="img-rounded" src="pics/Fourth.jpeg" alt="Dengyu's photo" width="240" height="240">
+            <h3>Fourth Layer</h3>
+        </div>
+        <div class="col-md-6" style="font-size:16px">
+        <img class="img-rounded" src="pics/Third.jpeg" alt="Dengyu's photo" width="240" height="240">
+        <h3>Third Layer</h3>
+        </div>
+          <p style="text-align: left;padding: 0px 30px;"><b>Game Mechanics Development: </b></p>
+          <p style="text-align: left;padding: 0px 30px;">In this phase of "Balloon Ninja," we meticulously built the gameplay in stages. Starting with generating and moving a single type of balloon, we focused on ensuring smooth motion and interaction. Next, we introduced the point-click popping mechanism, fine-tuning the response to user inputs. Subsequently, the slicing cut feature was added, creating a more dynamic interaction. The game's complexity further increased with the addition of different balloon types, each with unique behaviors and scoring. This incremental approach ensured each game element was robust before integrating it into the complete game system. Further enhancing the game's challenge, we adjusted the difficulty levels by modifying the balloon generation rate. This was especially crucial for higher difficulty settings where an increased number of balloons, including point-deducing red bombs, required players to be more selective and strategic in their interactions. Further enhancing the game's challenge, we adjusted the difficulty levels by modifying the balloon generation rate. This was especially crucial for higher difficulty settings where an increased number of balloons, including point-deducing red bombs, required players to be more selective and strategic in their interactions. Additionally, our testing revealed that the immediate disappearance of balloons upon popping was visually jarring. To create a more polished and engaging visual experience, we implemented a fading animation for the balloons. This subtle change meant that balloons would gradually disappear from the screen, adding a touch of realism and visual flair to the game. This enhancement significantly improved the overall aesthetic of the game, making the interactions feel more fluid and natural.</p>
+          <p style="text-align: left;padding: 0px 30px;"><b>Integration of Game and UI:</b></p>
+          <p style="text-align: left;padding: 0px 30px;">We harmonized the developed game mechanics with the user interface. This crucial stage involved ensuring the game elements, such as balloon popping and slicing, were seamlessly woven into the UI structure we had created. Special attention was paid to transitions between different game levels, aiming for fluidity and intuitiveness. This integration was key in creating a cohesive gaming experience, where the mechanics and UI complemented each other, enhancing the overall interactivity and playability of the game.</p>
+          <p style="text-align: left;padding: 0px 30px;"><b>Color Tracking Development</b></p>
+          <p style="text-align: left;padding: 0px 30px;">We developed three distinct prototypes for color tracking, each leveraging OpenCV. To determine the most efficient prototype, we used `htop` for real-time CPU usage monitoring. The final choice was made not only based on performance but also its ability to accurately detect a specific light blue color. We developed a specialized color range testing code that displayed masks and results for different HSV ranges, enabling us to fine-tune and select the optimum range. This testing was crucial for minimizing background interference. After selecting the best prototype, we encapsulated its functionality into the `ColorTracker` class, significantly improving the integration process with the game's UI and mechanics. This step was vital in enhancing the game by allowing players to interact through physical motion, bringing a unique and immersive dimension to the gameplay experience.</p>
+          <div style="text-align:center;">
+            <img class="img-rounded" src="pics/colorRang.jpg" alt="color Range" style="width:50%;">
+            <h4>Fine-tune the HSV color range for color masking</h4>
+          </div>
+          <p style="text-align: left;padding: 0px 30px;"><b>Final Integration</b></p>
+          <p style="text-align: left;padding: 0px 30px;">We meticulously combined the game mechanics, UI, and the `ColorTracker` class into a unified whole. This integration was challenging, particularly in ensuring that the color tracking functionality seamlessly meshed with the game's core mechanics and interface. A significant challenge was managing the amplification factor, which was crucial for adapting the game to different screen resolutions while maintaining consistent gameplay and visuals. We thoroughly tested and refined this integration, focusing on optimizing responsiveness and player engagement. This final step was vital in crafting a cohesive and immersive gaming experience, effectively demonstrating the synergy of embedded systems and advanced computer vision techniques in interactive gaming.</p>
+    </div>
+
+    <hr id='testing'>
+
+    <div style="text-align: center; font-size: 18px;">
+              <h2>Test</h2>
+              <p style="text-align: left;padding: 0px 30px;"><b>Black-Box Testing of Game Mechanics:</b></p>
+              <p style="text-align: left;padding: 0px 30px;"> The Black-Box Testing involved an in-depth evaluation of the game's various components, as developed in the earlier design stages. We systematically tested each aspect - from the interactive UI, ensuring user-friendly navigation and adaptability across different screens, to the core game mechanics like balloon popping. The testing here was crucial to ensure that the individual elements not only worked in isolation but also harmoniously when integrated. This phase was about validating the design choices made in the earlier stages, confirming the functionality and user experience before moving to more complex aspects like latency reduction and color tracking integration.</p>
+              <p style="text-align: left;padding: 0px 30px;"><b>Latency Reduction and Processing Optimization:</b> </p>
+              <p style="text-align: left;padding: 0px 30px;">A key challenge encountered was a noticeable lag in the game's response to player actions, particularly in slicing detection. To address this, we experimented with various camera resolutions, ultimately finding that a lower resolution significantly improved processing speed. This optimization was crucial for maintaining the fluidity of the game, ensuring that player gestures were translated into game actions with minimal delay. This phase was iterative, involving repeated testing and adjustments to strike the right balance between visual quality and real-time responsiveness.</p>
+              <p style="text-align: left;padding: 0px 30px;"><b>Balloon Popping Mechanism Refinement:</b></p>
+              <p style="text-align: left;padding: 0px 30px;">We delved deep into enhancing the balloon interaction. Initially, the game encountered errors with single-point clicks and rapid successive clicks, which caused unexpected behavior. We introduced conditional statements to resolve these issues, but new challenges emerged with different clicking patterns and the combination of point clicks and slicing gestures. To address these, we designed a dedicated point clicking popping function. This allowed us to separate the point click pop and slice cutting actions, ensuring they operated in parallel without causing bugs. This refinement was critical for a smooth, bug-free gaming experience.</p>
+              <p style="text-align: left;padding: 0px 30px;"><b>Motion Physics and User Experience Enhancement:</b></p>
+              <p style="text-align: left;padding: 0px 30px;">Considerable attention was given to refining the dynamics of balloon movement and enhancing visual elements for a more immersive experience. Key to this was the division of the screen into quarters, ensuring varied trajectories for the balloons. This segmentation allowed for more strategic gameplay, as balloons in the side quarters were programmed to move in specific directions, while those in the middle followed random paths. This design choice not only kept balloons on screen longer, giving players ample reaction time, but also introduced a layer of strategy in managing different balloon behaviors.</p>
+      </div>
+
+    <hr id='result'>
+
+      <div style="text-align:center;font-size: 18px;">
+              <h2>Result</h2>
+              <p style="text-align: left;padding: 0px 30px;">The game demonstrated effective OpenCV integration, successfully detecting light blue colors while eliminating background interference. Despite a residual delay, it did not impact the gameplay experience. The UI was highly praised for its aesthetics and smooth level transitions. Players particularly enjoyed the fading animation and the slicing path's visual appeal, lasting 0.2 seconds. Meeting our primary goal, we successfully blended OpenCV with a fruit ninja-like game, akin to motion detection in Nintendo games. This project enhanced our skills in Python class creation, OpenCV application, and CPU usage monitoring to optimize performance.</p>
+      </div>
+
+    <hr id='conclusion'>
+
+    <div style="text-align:center;font-size: 18px;">
+            <h2>Conclusion</h2>
+            <p style="text-align: left;padding: 0px 30px;">The conclusion of "Balloon Ninja" is a reflection on our comprehensive journey in embedded systems and game design. Embarking on this project, we aimed to seamlessly blend OpenCV technology with an interactive gaming experience, drawing inspiration from console gaming dynamics. The venture exceeded our expectations, not only in achieving a harmonious integration of advanced technologies but also in the richness of learning it offered. We delved deep into the intricacies of Python programming, real-time image processing, and efficient resource management, gaining invaluable insights. The positive reception of the game's design and functionality affirmed the potential of merging traditional gaming principles with cutting-edge computer vision techniques. This experience has significantly expanded our skill set and perspective, underscoring the immense possibilities that lie in the intersection of technology and entertainment. As we conclude this project, we are left with a strengthened foundation and an inspired outlook towards future innovations in interactive gaming and embedded system applications.</p>
+    </div>
+
+    <hr id='future work'>
+
+    <div style="text-align:center;font-size: 18px;">
+      <h2>Future Work</h2>
+      <p style="text-align: left;padding: 0px 30px;">For future work on "Balloon Ninja," we aim to explore more advanced OpenCV features to enhance game interaction, like recognizing hand motions and gestures so that no blue color objects are needed. We also plan to optimize game performance for higher resolutions while maintaining low latency. Integrating multiplayer capabilities and developing more complex balloon patterns and game levels will further enrich the user experience. Additionally, leveraging machine learning for more intuitive and responsive gameplay is on our roadmap.</p>
+    </div>
+
+  <hr>
+
+    <div class="row" style="text-align:center;">
+          <h2>Work Distribution</h2>
+          <div class="col-md-6" style="font-size:16px">
+              <img class="img-rounded" src="pics/yunxuan.jpg" alt="Yunxuan's Photo" width="240" height="240">
+              <h3>Yunxuan Xu</h3>
+              <p class="lead">yx595@cornell.edu</p>
+              <p> Designed the mechanisms and interactions of the balloon game module as well as the different layers of the game.
+          </div>
+          <div class="col-md-6" style="font-size:16px">
+              <img class="img-rounded" src="pics/dengyu.jpg" alt="Dengyu's photo" width="240" height="240">
+              <h3>Dengyu Tu</h3>
+              <p class="lead">dt538@cornell.edu</p>
+              <p> Controlled the Pi camera and designed the color recognition algorithms.
+          </div>
+      </div>
+
+    <hr>
+      <div style="font-size:18px">
+          <h2>Parts List</h2>
+          <ul>
+              <li>Raspberry Pi 4 $35.00</li>
+              <li>Raspberry Pi Camera V2 $25.00</li>
+          </ul>
+          <h3>Total: $60</h3>
+      </div>
+      <hr>
+      <div style="font-size:18px">
+          <h2>References</h2>
+          <a href="https://picamera.readthedocs.io/">PiCamera Document</a><br>
+          <a href="https://www.raspberrypi.com/documentation/accessories/camera.html">PiCamera Datasheet</a><br>
+          <a href="https://www.pygame.org/docs">Pygame Document</a><br>
+          <a href="https://courses.ece.cornell.edu/ece5990/ECE5725_Spring2023_Projects/3%20Saturday%20May%2013/1%20American%20Sign%20Language/ECE5725_bat66_jwl266_kk848-main/index.html">Previous Project (ASL Learning Game)</a><br>
+          <a href="https://www.geeksforgeeks.org/multiple-color-detection-in-real-time-using-python-opencv/">Color Detection</a><br>
+          <a href="https://medium.com/analytics-vidhya/hand-detection-and-finger-counting-using-opencv-python-5b594704eb08">Hand Contour Detection</a><br>
+
+      </div>
+
+    <hr>
+
+              <h2>Code Appendix</h2>
+              <pre><code>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #008800; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+  <span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">RPi.GPIO</span> <span style="color: #008800; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">GPIO</span>
+  <span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">pygame</span><span style="color: #333333">,</span> <span style="color: #0e84b5; font-weight: bold">os</span><span style="color: #333333">,</span> <span style="color: #0e84b5; font-weight: bold">math</span><span style="color: #333333">,</span> <span style="color: #0e84b5; font-weight: bold">time</span><span style="color: #333333">,</span> <span style="color: #0e84b5; font-weight: bold">random</span>
+  <span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">pygame.locals</span> <span style="color: #008800; font-weight: bold">import</span> <span style="color: #333333">*</span>
+  <span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">cv2</span>
+  <span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">numpy</span> <span style="color: #008800; font-weight: bold">as</span> <span style="color: #0e84b5; font-weight: bold">np</span>
+  <span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">threading</span>
+  <span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">picamera.array</span> <span style="color: #008800; font-weight: bold">import</span> PiRGBArray
+  <span style="color: #008800; font-weight: bold">from</span> <span style="color: #0e84b5; font-weight: bold">picamera</span> <span style="color: #008800; font-weight: bold">import</span> PiCamera
+  
+  use_piTFT <span style="color: #333333">=</span> <span style="color: #007020">True</span> <span style="color: #888888">#change to True if you want to use piTFT</span>
+  X,Y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span>,<span style="color: #6600EE; font-weight: bold">2.4</span> <span style="color: #888888">#amplify width and height</span>
+  
+  <span style="color: #008800; font-weight: bold">if</span> use_piTFT:
+      X,Y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>,<span style="color: #0000DD; font-weight: bold">1</span> 
+      os<span style="color: #333333">.</span>putenv(<span style="background-color: #fff0f0">&#39;SDL_VIDEODRIVER&#39;</span>, <span style="background-color: #fff0f0">&#39;fbcon&#39;</span>)  <span style="color: #888888"># Display on piTFT</span>
+      os<span style="color: #333333">.</span>putenv(<span style="background-color: #fff0f0">&#39;SDL_FBDEV&#39;</span>, <span style="background-color: #fff0f0">&#39;/dev/fb0&#39;</span>)
+      <span style="color: #888888">#os.putenv(&#39;SDL_FBDEV&#39;, &#39;/dev/fb1&#39;)</span>
+      os<span style="color: #333333">.</span>putenv(<span style="background-color: #fff0f0">&#39;SDL_MOUSEDRV&#39;</span>, <span style="background-color: #fff0f0">&#39;TSLIB&#39;</span>)  <span style="color: #888888"># Track mouse clicks on piTFT</span>
+      os<span style="color: #333333">.</span>putenv(<span style="background-color: #fff0f0">&#39;SDL_MOUSEDEV&#39;</span>, <span style="background-color: #fff0f0">&#39;/dev/input/touchscreen&#39;</span>)
+  
+  GPIO<span style="color: #333333">.</span>setmode(GPIO<span style="color: #333333">.</span>BCM)
+  GPIO<span style="color: #333333">.</span>setup(<span style="color: #0000DD; font-weight: bold">27</span>,GPIO<span style="color: #333333">.</span>IN,pull_up_down<span style="color: #333333">=</span>GPIO<span style="color: #333333">.</span>PUD_UP) <span style="color: #888888">#Quit program immediately</span>
+  pygame<span style="color: #333333">.</span>init()
+  
+  width, height<span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">320</span>, <span style="color: #0000DD; font-weight: bold">240</span>  <span style="color: #888888"># Define width and height</span>
+  screen <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>set_mode((<span style="color: #007020">int</span>(width<span style="color: #333333">*</span>X),<span style="color: #007020">int</span>(height<span style="color: #333333">*</span>Y)))
+  pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>set_caption(<span style="background-color: #fff0f0">&quot;Balloon Popping Game&quot;</span>)
+  WHITE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">255</span>
+  BLACK <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>
+  RED <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>
+  YELLOW <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">255</span> , <span style="color: #0000DD; font-weight: bold">0</span>
+  GREEN <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">0</span>
+  BLUE <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">255</span>
+  amplification_factors <span style="color: #333333">=</span> (<span style="color: #0000DD; font-weight: bold">4</span><span style="color: #333333">*</span>X, <span style="color: #0000DD; font-weight: bold">4</span><span style="color: #333333">*</span>Y) 
+  camera_resolution <span style="color: #333333">=</span> (<span style="color: #0000DD; font-weight: bold">80</span>, <span style="color: #0000DD; font-weight: bold">60</span>)
+  blue_lower <span style="color: #333333">=</span> np<span style="color: #333333">.</span>array([<span style="color: #0000DD; font-weight: bold">100</span>, <span style="color: #0000DD; font-weight: bold">135</span>, <span style="color: #0000DD; font-weight: bold">60</span>], np<span style="color: #333333">.</span>uint8)
+  blue_upper <span style="color: #333333">=</span> np<span style="color: #333333">.</span>array([<span style="color: #0000DD; font-weight: bold">150</span>, <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">255</span>], np<span style="color: #333333">.</span>uint8)
+  
+  
+  <span style="color: #888888">#Load some images</span>
+  background1 <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&quot;BG1.png&quot;</span>), (<span style="color: #007020">int</span>(width<span style="color: #333333">*</span>X),<span style="color: #007020">int</span>(height<span style="color: #333333">*</span>Y)))
+  background2 <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&quot;BG2.png&quot;</span>), (<span style="color: #007020">int</span>(width<span style="color: #333333">*</span>X),<span style="color: #007020">int</span>(height<span style="color: #333333">*</span>Y)))
+  background3 <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&quot;BG3.png&quot;</span>), (<span style="color: #007020">int</span>(width<span style="color: #333333">*</span>X),<span style="color: #007020">int</span>(height<span style="color: #333333">*</span>Y)))
+  background4 <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&quot;BG4.png&quot;</span>), (<span style="color: #007020">int</span>(width<span style="color: #333333">*</span>X),<span style="color: #007020">int</span>(height<span style="color: #333333">*</span>Y)))
+  balloons_info <span style="color: #333333">=</span> {
+      <span style="background-color: #fff0f0">&#39;red&#39;</span>: {<span style="background-color: #fff0f0">&#39;image&#39;</span>: pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&#39;red.png&#39;</span>), (<span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span>X), <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span>Y))), <span style="background-color: #fff0f0">&#39;score&#39;</span>: <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">5</span>},
+      <span style="background-color: #fff0f0">&#39;blue&#39;</span>: {<span style="background-color: #fff0f0">&#39;image&#39;</span>: pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&#39;blue.png&#39;</span>), (<span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span>X), <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span>Y))), <span style="background-color: #fff0f0">&#39;score&#39;</span>: <span style="color: #0000DD; font-weight: bold">2</span>},
+      <span style="background-color: #fff0f0">&#39;green&#39;</span>: {<span style="background-color: #fff0f0">&#39;image&#39;</span>: pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&#39;green.png&#39;</span>), (<span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">60</span><span style="color: #333333">*</span>X), <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">60</span><span style="color: #333333">*</span>Y))), <span style="background-color: #fff0f0">&#39;score&#39;</span>: <span style="color: #0000DD; font-weight: bold">5</span>},
+      <span style="background-color: #fff0f0">&#39;yellow&#39;</span>: {<span style="background-color: #fff0f0">&#39;image&#39;</span>: pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&#39;yellow.png&#39;</span>), (<span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>X), <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>Y))), <span style="background-color: #fff0f0">&#39;score&#39;</span>: <span style="color: #0000DD; font-weight: bold">10</span>}}
+  water_image <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&#39;water.png&#39;</span>)<span style="color: #333333">.</span>convert_alpha(), (<span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">60</span><span style="color: #333333">*</span>X), <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">60</span><span style="color: #333333">*</span>Y)))
+  bomb_image <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>scale(pygame<span style="color: #333333">.</span>image<span style="color: #333333">.</span>load(<span style="background-color: #fff0f0">&#39;bomb.png&#39;</span>)<span style="color: #333333">.</span>convert_alpha(), (<span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span>X), <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span>Y)))
+  
+  <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Animation</span>:
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>, position, animation_type):
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>position <span style="color: #333333">=</span> position
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>original_image <span style="color: #333333">=</span>  water_image <span style="color: #008800; font-weight: bold">if</span> animation_type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&#39;water&#39;</span> <span style="color: #008800; font-weight: bold">else</span> bomb_image
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>image <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>original_image<span style="color: #333333">.</span>copy()
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>opacity <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">255</span>
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>surface <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>Surface(<span style="color: #007020">self</span><span style="color: #333333">.</span>image<span style="color: #333333">.</span>get_size(), pygame<span style="color: #333333">.</span>SRCALPHA)
+  
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">draw</span>(<span style="color: #007020">self</span>, screen):
+          <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>opacity <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+              <span style="color: #007020">self</span><span style="color: #333333">.</span>surface<span style="color: #333333">.</span>fill((<span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #007020">self</span><span style="color: #333333">.</span>opacity))
+              <span style="color: #007020">self</span><span style="color: #333333">.</span>image<span style="color: #333333">.</span>blit(<span style="color: #007020">self</span><span style="color: #333333">.</span>original_image, (<span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>), special_flags<span style="color: #333333">=</span>pygame<span style="color: #333333">.</span>BLEND_RGBA_MULT)
+              screen<span style="color: #333333">.</span>blit(<span style="color: #007020">self</span><span style="color: #333333">.</span>image, <span style="color: #007020">self</span><span style="color: #333333">.</span>position)
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>opacity <span style="color: #333333">-=</span> <span style="color: #6600EE; font-weight: bold">0.2</span>
+  
+  <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Balloon</span>:
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>):
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>x <span style="color: #333333">=</span> random<span style="color: #333333">.</span>randint(<span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>X, (width<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">40</span>)<span style="color: #333333">*</span>X)
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>y <span style="color: #333333">=</span> (height <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">20</span>)<span style="color: #333333">*</span>Y
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>rotation_angle <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>rotation_speed <span style="color: #333333">=</span> random<span style="color: #333333">.</span>randint(<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">5</span>, <span style="color: #0000DD; font-weight: bold">5</span>)
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>speed <span style="color: #333333">=</span> random<span style="color: #333333">.</span>randint(<span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">55</span><span style="color: #333333">*</span>X)
+          <span style="color: #008800; font-weight: bold">if</span> use_piTFT: <span style="color: #007020">self</span><span style="color: #333333">.</span>speed <span style="color: #333333">=</span> random<span style="color: #333333">.</span>randint(<span style="color: #0000DD; font-weight: bold">20</span>,<span style="color: #0000DD; font-weight: bold">30</span>)
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>angle <span style="color: #333333">=</span> random<span style="color: #333333">.</span>uniform(math<span style="color: #333333">.</span>pi <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">3</span>, math<span style="color: #333333">.</span>pi <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>) 
+          <span style="color: #008800; font-weight: bold">if</span> width <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">4</span> <span style="color: #333333">&lt;=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #333333">*</span> width <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">4</span>:
+              <span style="color: #008800; font-weight: bold">if</span> random<span style="color: #333333">.</span>choice([<span style="color: #007020">True</span>, <span style="color: #007020">False</span>]):
+                  <span style="color: #007020">self</span><span style="color: #333333">.</span>angle <span style="color: #333333">=</span> math<span style="color: #333333">.</span>pi <span style="color: #333333">-</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>angle 
+          <span style="color: #008800; font-weight: bold">elif</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>x <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #333333">*</span> width <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">4</span>:
+              <span style="color: #007020">self</span><span style="color: #333333">.</span>angle <span style="color: #333333">=</span> math<span style="color: #333333">.</span>pi <span style="color: #333333">-</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>angle 
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>color <span style="color: #333333">=</span> random<span style="color: #333333">.</span>choice([<span style="background-color: #fff0f0">&#39;red&#39;</span>, <span style="background-color: #fff0f0">&#39;blue&#39;</span>, <span style="background-color: #fff0f0">&#39;green&#39;</span>, <span style="background-color: #fff0f0">&#39;yellow&#39;</span>])
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>image <span style="color: #333333">=</span> balloons_info[<span style="color: #007020">self</span><span style="color: #333333">.</span>color][<span style="background-color: #fff0f0">&#39;image&#39;</span>]
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>score <span style="color: #333333">=</span> balloons_info[<span style="color: #007020">self</span><span style="color: #333333">.</span>color][<span style="background-color: #fff0f0">&#39;score&#39;</span>]
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>rect <span style="color: #333333">=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>image<span style="color: #333333">.</span>get_rect(center<span style="color: #333333">=</span>(<span style="color: #007020">self</span><span style="color: #333333">.</span>x, <span style="color: #007020">self</span><span style="color: #333333">.</span>y))
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>time <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>
+  
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">draw</span>(<span style="color: #007020">self</span>):
+          rotated_image <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>transform<span style="color: #333333">.</span>rotate(<span style="color: #007020">self</span><span style="color: #333333">.</span>image, <span style="color: #007020">self</span><span style="color: #333333">.</span>rotation_angle)
+          screen<span style="color: #333333">.</span>blit(rotated_image, rotated_image<span style="color: #333333">.</span>get_rect(center<span style="color: #333333">=</span><span style="color: #007020">self</span><span style="color: #333333">.</span>rect<span style="color: #333333">.</span>center))
+  
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">move</span>(<span style="color: #007020">self</span>):
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>time <span style="color: #333333">+=</span> <span style="color: #6600EE; font-weight: bold">0.2</span>
+          gravity <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">6</span><span style="color: #333333">*</span>X
+          <span style="color: #008800; font-weight: bold">if</span> use_piTFT: gravity <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>rect<span style="color: #333333">.</span>x <span style="color: #333333">=</span> <span style="color: #007020">int</span>(<span style="color: #007020">self</span><span style="color: #333333">.</span>x <span style="color: #333333">+</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>speed <span style="color: #333333">*</span> math<span style="color: #333333">.</span>cos(<span style="color: #007020">self</span><span style="color: #333333">.</span>angle) <span style="color: #333333">*</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>time)
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>rect<span style="color: #333333">.</span>y <span style="color: #333333">=</span> <span style="color: #007020">int</span>(<span style="color: #007020">self</span><span style="color: #333333">.</span>y <span style="color: #333333">-</span> (<span style="color: #007020">self</span><span style="color: #333333">.</span>speed <span style="color: #333333">*</span> math<span style="color: #333333">.</span>sin(<span style="color: #007020">self</span><span style="color: #333333">.</span>angle) <span style="color: #333333">*</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>time <span style="color: #333333">-</span> <span style="color: #6600EE; font-weight: bold">0.5</span> <span style="color: #333333">*</span> gravity <span style="color: #333333">*</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>time <span style="color: #333333">**</span> <span style="color: #0000DD; font-weight: bold">2</span>))
+          <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>rect<span style="color: #333333">.</span>y <span style="color: #333333">&gt;</span> (height<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">50</span>)<span style="color: #333333">*</span>Y <span style="color: #000000; font-weight: bold">or</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>rect<span style="color: #333333">.</span>x <span style="color: #333333">&lt;</span> (<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">50</span>)<span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">or</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>rect<span style="color: #333333">.</span>x <span style="color: #333333">&gt;</span> (width<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">50</span>)<span style="color: #333333">*</span>X:
+              balloons<span style="color: #333333">.</span>remove(<span style="color: #007020">self</span>)
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>rotation_angle <span style="color: #333333">+=</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>rotation_speed
+  
+  <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ColorTracker</span>:
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">__init__</span>(<span style="color: #007020">self</span>):
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>camera <span style="color: #333333">=</span> PiCamera()
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>camera<span style="color: #333333">.</span>resolution <span style="color: #333333">=</span> camera_resolution
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>camera<span style="color: #333333">.</span>framerate <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">30</span>
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>raw_capture <span style="color: #333333">=</span> PiRGBArray(<span style="color: #007020">self</span><span style="color: #333333">.</span>camera, size<span style="color: #333333">=</span>camera_resolution)
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>frame <span style="color: #333333">=</span> <span style="color: #007020">None</span>
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>lock <span style="color: #333333">=</span> threading<span style="color: #333333">.</span>Lock()
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>running <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+          <span style="color: #007020">self</span><span style="color: #333333">.</span>color_center <span style="color: #333333">=</span> (<span style="color: #007020">None</span>, <span style="color: #007020">None</span>)
+  
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">start</span>(<span style="color: #007020">self</span>):
+          threading<span style="color: #333333">.</span>Thread(target<span style="color: #333333">=</span><span style="color: #007020">self</span><span style="color: #333333">.</span>camera_stream)<span style="color: #333333">.</span>start()
+          threading<span style="color: #333333">.</span>Thread(target<span style="color: #333333">=</span><span style="color: #007020">self</span><span style="color: #333333">.</span>process_stream)<span style="color: #333333">.</span>start()
+  
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">camera_stream</span>(<span style="color: #007020">self</span>):
+          <span style="color: #008800; font-weight: bold">for</span> f <span style="color: #000000; font-weight: bold">in</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>camera<span style="color: #333333">.</span>capture_continuous(<span style="color: #007020">self</span><span style="color: #333333">.</span>raw_capture, format<span style="color: #333333">=</span><span style="background-color: #fff0f0">&quot;bgr&quot;</span>, use_video_port<span style="color: #333333">=</span><span style="color: #007020">True</span>):
+              <span style="color: #008800; font-weight: bold">with</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>lock:
+                  <span style="color: #007020">self</span><span style="color: #333333">.</span>frame <span style="color: #333333">=</span> f<span style="color: #333333">.</span>array
+                  <span style="color: #007020">self</span><span style="color: #333333">.</span>raw_capture<span style="color: #333333">.</span>truncate(<span style="color: #0000DD; font-weight: bold">0</span>)
+              <span style="color: #008800; font-weight: bold">if</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>running:
+                  <span style="color: #008800; font-weight: bold">break</span>
+  
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">process_stream</span>(<span style="color: #007020">self</span>):
+          <span style="color: #008800; font-weight: bold">while</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>running:
+              <span style="color: #008800; font-weight: bold">with</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>lock:
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>frame <span style="color: #000000; font-weight: bold">is</span> <span style="color: #000000; font-weight: bold">not</span> <span style="color: #007020">None</span>:
+                      <span style="color: #007020">self</span><span style="color: #333333">.</span>process_frame(<span style="color: #007020">self</span><span style="color: #333333">.</span>frame)
+  
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">process_frame</span>(<span style="color: #007020">self</span>, f):
+          f_flipped <span style="color: #333333">=</span> cv2<span style="color: #333333">.</span>flip(f, <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>)  <span style="color: #888888"># Flip the frame</span>
+          hsv <span style="color: #333333">=</span> cv2<span style="color: #333333">.</span>cvtColor(f_flipped, cv2<span style="color: #333333">.</span>COLOR_BGR2HSV)
+          mask <span style="color: #333333">=</span> cv2<span style="color: #333333">.</span>inRange(hsv, blue_lower, blue_upper)
+          cnts, _ <span style="color: #333333">=</span> cv2<span style="color: #333333">.</span>findContours(mask, cv2<span style="color: #333333">.</span>RETR_EXTERNAL, cv2<span style="color: #333333">.</span>CHAIN_APPROX_SIMPLE)
+      
+          <span style="color: #008800; font-weight: bold">if</span> cnts:
+              c <span style="color: #333333">=</span> <span style="color: #007020">max</span>(cnts, key<span style="color: #333333">=</span>cv2<span style="color: #333333">.</span>contourArea)
+              x, y, w, h <span style="color: #333333">=</span> cv2<span style="color: #333333">.</span>boundingRect(c)
+      
+              <span style="color: #888888"># Amplify rectangle coordinates and size</span>
+              ax, ay, aw, ah <span style="color: #333333">=</span> (<span style="color: #007020">int</span>(x <span style="color: #333333">*</span> amplification_factors[<span style="color: #0000DD; font-weight: bold">0</span>]), <span style="color: #007020">int</span>(y <span style="color: #333333">*</span> amplification_factors[<span style="color: #0000DD; font-weight: bold">1</span>]),
+                                <span style="color: #007020">int</span>(w <span style="color: #333333">*</span> amplification_factors[<span style="color: #0000DD; font-weight: bold">0</span>]), <span style="color: #007020">int</span>(h <span style="color: #333333">*</span> amplification_factors[<span style="color: #0000DD; font-weight: bold">1</span>]))
+              center_x, center_y <span style="color: #333333">=</span> <span style="color: #007020">int</span>(ax <span style="color: #333333">+</span> aw<span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>), <span style="color: #007020">int</span>(ay <span style="color: #333333">+</span> ah<span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>)
+  
+              <span style="color: #888888"># Resize the frame for display</span>
+              f_resized <span style="color: #333333">=</span> cv2<span style="color: #333333">.</span>resize(f_flipped, (<span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>), fx<span style="color: #333333">=</span>amplification_factors[<span style="color: #0000DD; font-weight: bold">0</span>], fy<span style="color: #333333">=</span>amplification_factors[<span style="color: #0000DD; font-weight: bold">1</span>])
+              cv2<span style="color: #333333">.</span>rectangle(f_resized, (ax, ay), (ax <span style="color: #333333">+</span> aw, ay <span style="color: #333333">+</span> ah), (<span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">0</span>), <span style="color: #0000DD; font-weight: bold">2</span>)
+              cv2<span style="color: #333333">.</span>circle(f_resized, (center_x, center_y), <span style="color: #0000DD; font-weight: bold">5</span>, (<span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">255</span>), <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>)
+              <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Amplified Center: (&quot;</span>, center_x, <span style="background-color: #fff0f0">&quot;,&quot;</span>, center_y, <span style="background-color: #fff0f0">&quot;)&quot;</span>)
+              <span style="color: #007020">self</span><span style="color: #333333">.</span>color_center <span style="color: #333333">=</span> (center_x, center_y)    
+          <span style="color: #008800; font-weight: bold">else</span>:
+              f_resized <span style="color: #333333">=</span> cv2<span style="color: #333333">.</span>resize(f_flipped, (<span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>), fx<span style="color: #333333">=</span>amplification_factors[<span style="color: #0000DD; font-weight: bold">0</span>], fy<span style="color: #333333">=</span>amplification_factors[<span style="color: #0000DD; font-weight: bold">1</span>])
+          <span style="color: #008800; font-weight: bold">if</span> <span style="color: #000000; font-weight: bold">not</span> use_piTFT:
+              cv2<span style="color: #333333">.</span>imshow(<span style="background-color: #fff0f0">&quot;Frame&quot;</span>, f_resized)
+          <span style="color: #008800; font-weight: bold">if</span> cv2<span style="color: #333333">.</span>waitKey(<span style="color: #0000DD; font-weight: bold">1</span>) <span style="color: #333333">&amp;</span> <span style="color: #005588; font-weight: bold">0xFF</span> <span style="color: #333333">==</span> <span style="color: #007020">ord</span>(<span style="background-color: #fff0f0">&#39;q&#39;</span>):
+              <span style="color: #007020">self</span><span style="color: #333333">.</span>running <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+              
+      <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">get_center</span>(<span style="color: #007020">self</span>):
+          <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">self</span><span style="color: #333333">.</span>color_center
+  
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">GPIO27_cb</span>(channel):
+      <span style="color: #008800; font-weight: bold">global</span> run
+      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Physical Quit Button Pressed&quot;</span>)
+      run <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+  
+  <span style="color: #888888"># show buttons on the screen window</span>
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">Buttons</span>(buttons, fontsize, color):
+      my_font <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>font<span style="color: #333333">.</span>Font(<span style="color: #007020">None</span>, fontsize)
+      <span style="color: #008800; font-weight: bold">for</span> my_text, text_pos <span style="color: #000000; font-weight: bold">in</span> buttons<span style="color: #333333">.</span>items():
+          text_surface <span style="color: #333333">=</span> my_font<span style="color: #333333">.</span>render(my_text, <span style="color: #007020">True</span>, color)
+          rect <span style="color: #333333">=</span> text_surface<span style="color: #333333">.</span>get_rect(center<span style="color: #333333">=</span>text_pos)
+          screen<span style="color: #333333">.</span>blit(text_surface, rect)
+  
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">Background</span>(bg):
+      <span style="color: #008800; font-weight: bold">if</span> bg <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+          screen<span style="color: #333333">.</span>blit(background1,(<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>))
+      <span style="color: #008800; font-weight: bold">elif</span> bg <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">2</span>:
+          screen<span style="color: #333333">.</span>blit(background2,(<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>))
+      <span style="color: #008800; font-weight: bold">elif</span> bg <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">3</span>:
+          screen<span style="color: #333333">.</span>blit(background3,(<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>))
+      <span style="color: #008800; font-weight: bold">elif</span> bg <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">4</span>:
+          screen<span style="color: #333333">.</span>blit(background4,(<span style="color: #0000DD; font-weight: bold">0</span>,<span style="color: #0000DD; font-weight: bold">0</span>))
+          
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">ButtonLV1</span>():
+      Background(bg)
+      Buttons({<span style="background-color: #fff0f0">&quot;START&quot;</span>: (<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>X, <span style="color: #0000DD; font-weight: bold">120</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">50</span><span style="color: #333333">*</span>X), BLACK)
+      Buttons({<span style="background-color: #fff0f0">&quot;Quit&quot;</span>:(<span style="color: #0000DD; font-weight: bold">290</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">225</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">30</span><span style="color: #333333">*</span>X), WHITE)
+      Buttons({<span style="background-color: #fff0f0">&quot;&lt;&quot;</span>:(<span style="color: #0000DD; font-weight: bold">25</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">120</span><span style="color: #333333">*</span>Y),<span style="background-color: #fff0f0">&quot;&gt;&quot;</span>:(<span style="color: #0000DD; font-weight: bold">295</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">120</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">60</span><span style="color: #333333">*</span>X), YELLOW)
+      
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">ButtonLV2</span>():
+      <span style="color: #008800; font-weight: bold">global</span> HS,CS,CD
+      Background(bg)
+      Buttons({<span style="background-color: #fff0f0">&quot;Difficulty Selection&quot;</span>: (<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>X, <span style="color: #0000DD; font-weight: bold">30</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>X), BLACK)
+      Buttons({<span style="background-color: #fff0f0">&quot;EASY&quot;</span>:(<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">90</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>X), GREEN)
+      Buttons({<span style="background-color: #fff0f0">&quot;HARD&quot;</span>:(<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">150</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>X), RED)
+      Buttons({<span style="background-color: #fff0f0">&quot;Highest Score: &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(HS): (<span style="color: #0000DD; font-weight: bold">55</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">230</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">20</span><span style="color: #333333">*</span>X), YELLOW)
+      Buttons({<span style="background-color: #fff0f0">&quot;Back&quot;</span>:(<span style="color: #0000DD; font-weight: bold">290</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">225</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">30</span><span style="color: #333333">*</span>X), WHITE)
+  
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">ButtonLV3</span>(gametime):
+      <span style="color: #008800; font-weight: bold">global</span> HS,CS,CD
+      Background(bg)
+      <span style="color: #008800; font-weight: bold">if</span> gametime <span style="color: #333333">&lt;</span> <span style="color: #6600EE; font-weight: bold">2.5</span>:
+          Buttons({<span style="color: #007020">str</span>(<span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #333333">-</span> <span style="color: #007020">int</span>(gametime)): (<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">120</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">*</span>X), BLACK)
+      <span style="color: #008800; font-weight: bold">elif</span> <span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #333333">&gt;</span> gametime <span style="color: #333333">&gt;</span><span style="color: #6600EE; font-weight: bold">2.5</span>:
+          Buttons({<span style="background-color: #fff0f0">&quot;GO!&quot;</span>: (<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">120</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">*</span>X), BLACK)
+      <span style="color: #008800; font-weight: bold">else</span>:
+          Buttons({<span style="background-color: #fff0f0">&quot;Time: &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(CD<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">3</span><span style="color: #333333">-</span><span style="color: #007020">int</span>(gametime))<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;s&quot;</span>:(<span style="color: #0000DD; font-weight: bold">280</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">20</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">25</span><span style="color: #333333">*</span>X), WHITE)
+      Buttons({<span style="background-color: #fff0f0">&quot;Highest Score: &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(HS): (<span style="color: #0000DD; font-weight: bold">65</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">20</span><span style="color: #333333">*</span>X), WHITE)
+      Buttons({<span style="background-color: #fff0f0">&quot;Current Score: &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(CS): (<span style="color: #0000DD; font-weight: bold">65</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">30</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">20</span><span style="color: #333333">*</span>X), WHITE)
+      Buttons({<span style="background-color: #fff0f0">&quot;End&quot;</span>:(<span style="color: #0000DD; font-weight: bold">295</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">225</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">30</span><span style="color: #333333">*</span>X), WHITE)
+  
+  <span style="color: #008800; font-weight: bold">def</span> <span style="color: #0066BB; font-weight: bold">ButtonLV4</span>():
+      <span style="color: #008800; font-weight: bold">global</span> HS,CS,CD
+      Background(bg)
+      Buttons({<span style="background-color: #fff0f0">&quot;Congratulation !&quot;</span>:(<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">55</span><span style="color: #333333">*</span>X), BLACK)
+      Buttons({<span style="background-color: #fff0f0">&quot;You got &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(CS)<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot; Points&quot;</span>:(<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">35</span><span style="color: #333333">*</span>X), YELLOW)
+      Buttons({<span style="background-color: #fff0f0">&quot;Play Again&quot;</span>:(<span style="color: #0000DD; font-weight: bold">90</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">25</span><span style="color: #333333">*</span>X), GREEN)
+      Buttons({<span style="background-color: #fff0f0">&quot;Another Difficulty&quot;</span>:(<span style="color: #0000DD; font-weight: bold">230</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">25</span><span style="color: #333333">*</span>X), BLUE)
+      Buttons({<span style="background-color: #fff0f0">&quot;Home&quot;</span>:(<span style="color: #0000DD; font-weight: bold">285</span><span style="color: #333333">*</span>X,<span style="color: #0000DD; font-weight: bold">225</span><span style="color: #333333">*</span>Y)}, <span style="color: #007020">int</span>(<span style="color: #0000DD; font-weight: bold">30</span><span style="color: #333333">*</span>X), WHITE)
+  
+  GPIO<span style="color: #333333">.</span>add_event_detect(<span style="color: #0000DD; font-weight: bold">27</span>,GPIO<span style="color: #333333">.</span>FALLING,callback<span style="color: #333333">=</span>GPIO27_cb,bouncetime<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">300</span>)
+  
+  <span style="color: #008800; font-weight: bold">global</span> HS,CS,CD,CDS
+  HS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #888888">#highest score</span>
+  CD <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">30</span> <span style="color: #888888">#countdown in second</span>
+  
+  run <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+  level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>  <span style="color: #888888"># Switch between level 1-4 menus</span>
+  bg <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #888888">#switch between 4 backgrounds</span>
+  hard <span style="color: #333333">=</span> <span style="color: #007020">False</span> <span style="color: #888888">#Difficulty selection</span>
+  
+  clock <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>time<span style="color: #333333">.</span>Clock()
+  balloons <span style="color: #333333">=</span> []
+  animations <span style="color: #333333">=</span> []
+  slicing <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+  slicing_path <span style="color: #333333">=</span> []
+  tracker <span style="color: #333333">=</span> ColorTracker()
+  tracker_thread <span style="color: #333333">=</span> threading<span style="color: #333333">.</span>Thread(target <span style="color: #333333">=</span> tracker<span style="color: #333333">.</span>start)
+  tracker_thread<span style="color: #333333">.</span>start()
+  hand_slicing <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+  hand_slicing_path<span style="color: #333333">=</span>[]
+  
+  <span style="color: #008800; font-weight: bold">while</span> run:
+      CS <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span> <span style="color: #888888">#current score</span>
+  
+      <span style="color: #008800; font-weight: bold">while</span> level <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #000000; font-weight: bold">and</span> run:
+          ButtonLV1()  
+          pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>flip()
+          <span style="color: #008800; font-weight: bold">for</span> event <span style="color: #000000; font-weight: bold">in</span> pygame<span style="color: #333333">.</span>event<span style="color: #333333">.</span>get():
+              <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>QUIT:
+                  run <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+              <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> MOUSEBUTTONDOWN:
+                  pos <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>mouse<span style="color: #333333">.</span>get_pos()
+                  x, y <span style="color: #333333">=</span> pos
+                  <span style="color: #008800; font-weight: bold">print</span>(<span style="color: #007020">str</span>(x)<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot; &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(y))
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">105</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">215</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">140</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#START on LV1</span>
+                      level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span>
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">270</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">310</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">200</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">240</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#Quit on LV1</span>
+                      run <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Level 1 Quit Pressed&quot;</span>)
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">40</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">140</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#&lt; on LV1</span>
+                      bg <span style="color: #333333">-=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+                      <span style="color: #008800; font-weight: bold">if</span> bg <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>:
+                          bg <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Left Pressed&quot;</span>)
+                      <span style="color: #008800; font-weight: bold">break</span>
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">280</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">310</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">140</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#&gt; on LV1</span>
+                      bg <span style="color: #333333">+=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+                      <span style="color: #008800; font-weight: bold">if</span> bg <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">5</span>:
+                          bg <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Right Pressed&quot;</span>)
+                      <span style="color: #008800; font-weight: bold">break</span>
+      
+      <span style="color: #008800; font-weight: bold">while</span> level <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">2</span> <span style="color: #000000; font-weight: bold">and</span> run:
+          ButtonLV2()  
+          pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>flip()
+          <span style="color: #008800; font-weight: bold">for</span> event <span style="color: #000000; font-weight: bold">in</span> pygame<span style="color: #333333">.</span>event<span style="color: #333333">.</span>get():
+              <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>QUIT:
+                  run <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+              <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> MOUSEBUTTONDOWN:
+                  pos <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>mouse<span style="color: #333333">.</span>get_pos()
+                  x, y <span style="color: #333333">=</span> pos
+                  <span style="color: #008800; font-weight: bold">print</span>(<span style="color: #007020">str</span>(x)<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot; &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(y))
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">120</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">195</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#easy on LV2</span>
+                      level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span>
+                      hard <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+                      CDS <span style="color: #333333">=</span> time<span style="color: #333333">.</span>time()
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Easy Mode&quot;</span>)
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">120</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">195</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">140</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">160</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#hard on LV2</span>
+                      CDS <span style="color: #333333">=</span> time<span style="color: #333333">.</span>time()
+                      hard <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+                      level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span> 
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Hard Mode&quot;</span>)
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">265</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">310</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">200</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">240</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#Back on LV2</span>
+                      level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Level 2 Back Pressed&quot;</span>)
+                  
+      <span style="color: #008800; font-weight: bold">while</span> level <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">3</span> <span style="color: #000000; font-weight: bold">and</span> run:
+          gametime <span style="color: #333333">=</span> time<span style="color: #333333">.</span>time() <span style="color: #333333">-</span> CDS <span style="color: #888888">#time spend in LV3</span>
+          current_time <span style="color: #333333">=</span> time<span style="color: #333333">.</span>time()
+          ButtonLV3(gametime)
+          <span style="color: #008800; font-weight: bold">if</span> gametime <span style="color: #333333">&gt;</span> CD<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">3</span>:
+              level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>
+              <span style="color: #008800; font-weight: bold">if</span> HS <span style="color: #333333">&lt;</span> CS: HS <span style="color: #333333">=</span> CS
+              <span style="color: #008800; font-weight: bold">for</span> balloon <span style="color: #000000; font-weight: bold">in</span> balloons[:]: balloons<span style="color: #333333">.</span>remove(balloon)
+              <span style="color: #008800; font-weight: bold">for</span> animation <span style="color: #000000; font-weight: bold">in</span> animations[:]: animations<span style="color: #333333">.</span>remove(animation)
+              <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Game End&quot;</span>)
+          <span style="color: #008800; font-weight: bold">for</span> event <span style="color: #000000; font-weight: bold">in</span> pygame<span style="color: #333333">.</span>event<span style="color: #333333">.</span>get():
+              <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>QUIT:
+                  run <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+              <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>MOUSEBUTTONDOWN:
+                  slicing <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+                  pos <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>mouse<span style="color: #333333">.</span>get_pos()
+                  x, y <span style="color: #333333">=</span> pos
+                  <span style="color: #008800; font-weight: bold">print</span>(<span style="color: #007020">str</span>(x)<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot; &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(y))
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">280</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">310</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">200</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">240</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#End on LV3</span>
+                      level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">4</span>
+                      <span style="color: #008800; font-weight: bold">if</span> HS <span style="color: #333333">&lt;</span> CS: HS <span style="color: #333333">=</span> CS
+                      <span style="color: #008800; font-weight: bold">for</span> balloon <span style="color: #000000; font-weight: bold">in</span> balloons[:]: balloons<span style="color: #333333">.</span>remove(balloon)
+                      <span style="color: #008800; font-weight: bold">for</span> animation <span style="color: #000000; font-weight: bold">in</span> animations[:]: animations<span style="color: #333333">.</span>remove(animation)
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Level 3 End Pressed&quot;</span>)
+                  <span style="color: #008800; font-weight: bold">for</span> balloon <span style="color: #000000; font-weight: bold">in</span> balloons[:]:
+                      <span style="color: #008800; font-weight: bold">if</span> balloon<span style="color: #333333">.</span>rect<span style="color: #333333">.</span>collidepoint(pos):
+                          animation_type <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;water&#39;</span> <span style="color: #008800; font-weight: bold">if</span> balloon<span style="color: #333333">.</span>color <span style="color: #333333">!=</span> <span style="background-color: #fff0f0">&#39;red&#39;</span> <span style="color: #008800; font-weight: bold">else</span> <span style="background-color: #fff0f0">&#39;bomb&#39;</span>
+                          animations<span style="color: #333333">.</span>append(Animation(balloon<span style="color: #333333">.</span>rect<span style="color: #333333">.</span>center, animation_type))
+                          balloons<span style="color: #333333">.</span>remove(balloon)
+                          CS <span style="color: #333333">+=</span> balloon<span style="color: #333333">.</span>score
+              <span style="color: #008800; font-weight: bold">elif</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>MOUSEBUTTONUP:
+                  slicing <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+              <span style="color: #008800; font-weight: bold">elif</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>MOUSEMOTION <span style="color: #000000; font-weight: bold">and</span> slicing:
+                  slicing_path<span style="color: #333333">.</span>append((pygame<span style="color: #333333">.</span>mouse<span style="color: #333333">.</span>get_pos(), current_time))
+                  <span style="color: #008800; font-weight: bold">for</span> balloon <span style="color: #000000; font-weight: bold">in</span> balloons[:]:
+                      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">any</span>(balloon<span style="color: #333333">.</span>rect<span style="color: #333333">.</span>collidepoint(pos) <span style="color: #008800; font-weight: bold">for</span> pos, _ <span style="color: #000000; font-weight: bold">in</span> slicing_path):
+                          animation_type <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;water&#39;</span> <span style="color: #008800; font-weight: bold">if</span> balloon<span style="color: #333333">.</span>color <span style="color: #333333">!=</span> <span style="background-color: #fff0f0">&#39;red&#39;</span> <span style="color: #008800; font-weight: bold">else</span> <span style="background-color: #fff0f0">&#39;bomb&#39;</span>
+                          animations<span style="color: #333333">.</span>append(Animation(balloon<span style="color: #333333">.</span>rect<span style="color: #333333">.</span>center, animation_type))
+                          balloons<span style="color: #333333">.</span>remove(balloon)
+                          CS <span style="color: #333333">+=</span> balloon<span style="color: #333333">.</span>score
+                         
+          center <span style="color: #333333">=</span> tracker<span style="color: #333333">.</span>get_center()
+          x,y <span style="color: #333333">=</span> center 
+          <span style="color: #008800; font-weight: bold">if</span>(x<span style="color: #333333">!=</span><span style="color: #007020">None</span> <span style="color: #000000; font-weight: bold">and</span> y<span style="color: #333333">!=</span><span style="color: #007020">None</span>):
+              hand_slicing <span style="color: #333333">=</span> <span style="color: #007020">True</span>
+              <span style="color: #008800; font-weight: bold">for</span> balloon <span style="color: #000000; font-weight: bold">in</span> balloons[:]:
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">any</span>(balloon<span style="color: #333333">.</span>rect<span style="color: #333333">.</span>collidepoint(pos) <span style="color: #008800; font-weight: bold">for</span> pos, _ <span style="color: #000000; font-weight: bold">in</span> hand_slicing_path):
+                      animation_type <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&#39;water&#39;</span> <span style="color: #008800; font-weight: bold">if</span> balloon<span style="color: #333333">.</span>color <span style="color: #333333">!=</span> <span style="background-color: #fff0f0">&#39;red&#39;</span> <span style="color: #008800; font-weight: bold">else</span> <span style="background-color: #fff0f0">&#39;bomb&#39;</span>
+                      animations<span style="color: #333333">.</span>append(Animation(balloon<span style="color: #333333">.</span>rect<span style="color: #333333">.</span>center, animation_type))
+                      balloons<span style="color: #333333">.</span>remove(balloon)
+                      CS <span style="color: #333333">+=</span> balloon<span style="color: #333333">.</span>score
+              hand_slicing_path<span style="color: #333333">.</span>append(((<span style="color: #0000DD; font-weight: bold">80</span><span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">4</span><span style="color: #333333">*</span>X<span style="color: #333333">-</span>x,y), time<span style="color: #333333">.</span>time()))
+          <span style="color: #008800; font-weight: bold">else</span>:
+              hand_slicing <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+      
+      
+          <span style="color: #008800; font-weight: bold">if</span> slicing:
+              slicing_path <span style="color: #333333">=</span> [(pos, t) <span style="color: #008800; font-weight: bold">for</span> pos, t <span style="color: #000000; font-weight: bold">in</span> slicing_path <span style="color: #008800; font-weight: bold">if</span> current_time <span style="color: #333333">-</span> t <span style="color: #333333">&lt;</span> <span style="color: #6600EE; font-weight: bold">0.2</span>]
+              <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">len</span>(slicing_path) <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+                  pygame<span style="color: #333333">.</span>draw<span style="color: #333333">.</span>lines(screen, (<span style="color: #0000DD; font-weight: bold">255</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>), <span style="color: #007020">False</span>, [pos <span style="color: #008800; font-weight: bold">for</span> pos, _ <span style="color: #000000; font-weight: bold">in</span> slicing_path], <span style="color: #0000DD; font-weight: bold">10</span>)
+          <span style="color: #008800; font-weight: bold">if</span> hand_slicing:
+              hand_slicing_path <span style="color: #333333">=</span> [(pos, t) <span style="color: #008800; font-weight: bold">for</span> pos, t <span style="color: #000000; font-weight: bold">in</span> hand_slicing_path <span style="color: #008800; font-weight: bold">if</span> current_time <span style="color: #333333">-</span> t <span style="color: #333333">&lt;</span> <span style="color: #6600EE; font-weight: bold">0.3</span>]
+              <span style="color: #008800; font-weight: bold">if</span> <span style="color: #007020">len</span>(hand_slicing_path) <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+                  pygame<span style="color: #333333">.</span>draw<span style="color: #333333">.</span>lines(screen, (<span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">0</span>, <span style="color: #0000DD; font-weight: bold">255</span>), <span style="color: #007020">False</span>, [pos <span style="color: #008800; font-weight: bold">for</span> pos, _ <span style="color: #000000; font-weight: bold">in</span> hand_slicing_path], <span style="color: #0000DD; font-weight: bold">10</span>)
+              
+          n <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">45</span><span style="color: #333333">/</span>X <span style="color: #008800; font-weight: bold">if</span> hard <span style="color: #333333">==</span> <span style="color: #007020">True</span> <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0000DD; font-weight: bold">90</span><span style="color: #333333">/</span>X
+          <span style="color: #008800; font-weight: bold">if</span> random<span style="color: #333333">.</span>randint(<span style="color: #0000DD; font-weight: bold">1</span>, n) <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>:
+              balloons<span style="color: #333333">.</span>append(Balloon())
+          
+          <span style="color: #008800; font-weight: bold">if</span> gametime <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">3</span>:
+             <span style="color: #008800; font-weight: bold">for</span> balloon <span style="color: #000000; font-weight: bold">in</span> balloons:
+                 balloon<span style="color: #333333">.</span>move()
+                 balloon<span style="color: #333333">.</span>draw()
+              
+          <span style="color: #008800; font-weight: bold">for</span> animation <span style="color: #000000; font-weight: bold">in</span> animations[:]:
+              animation<span style="color: #333333">.</span>draw(screen)
+              <span style="color: #008800; font-weight: bold">if</span> animation<span style="color: #333333">.</span>opacity <span style="color: #333333">&lt;=</span> <span style="color: #0000DD; font-weight: bold">243</span>:
+                  animations<span style="color: #333333">.</span>remove(animation)
+                      
+          pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>flip()
+          
+      <span style="color: #008800; font-weight: bold">while</span> level <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">4</span> <span style="color: #000000; font-weight: bold">and</span> run:
+          ButtonLV4()  
+          pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>flip()
+          <span style="color: #008800; font-weight: bold">for</span> event <span style="color: #000000; font-weight: bold">in</span> pygame<span style="color: #333333">.</span>event<span style="color: #333333">.</span>get():
+              <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> pygame<span style="color: #333333">.</span>QUIT:
+                  run <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+              <span style="color: #008800; font-weight: bold">if</span> event<span style="color: #333333">.</span>type <span style="color: #333333">==</span> MOUSEBUTTONDOWN:
+                  pos <span style="color: #333333">=</span> pygame<span style="color: #333333">.</span>mouse<span style="color: #333333">.</span>get_pos()
+                  x, y <span style="color: #333333">=</span> pos
+                  <span style="color: #008800; font-weight: bold">print</span>(<span style="color: #007020">str</span>(x)<span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot; &quot;</span><span style="color: #333333">+</span><span style="color: #007020">str</span>(y))
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">45</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">135</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">150</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">170</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#Play Again on LV4</span>
+                      level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">3</span>
+                      CDS <span style="color: #333333">=</span> time<span style="color: #333333">.</span>time()
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Play Again&quot;</span>)
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">155</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">300</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">150</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">170</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#Another Difficulty on LV4</span>
+                      level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">2</span> 
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Difficulty Selection&quot;</span>)
+                  <span style="color: #008800; font-weight: bold">if</span> <span style="color: #0000DD; font-weight: bold">260</span><span style="color: #333333">*</span>X <span style="color: #333333">&lt;</span> x <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">310</span><span style="color: #333333">*</span>X <span style="color: #000000; font-weight: bold">and</span> <span style="color: #0000DD; font-weight: bold">200</span><span style="color: #333333">*</span>Y <span style="color: #333333">&lt;</span> y <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">240</span><span style="color: #333333">*</span>Y : <span style="color: #888888">#Home on LV4</span>
+                      level <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span>
+                      <span style="color: #008800; font-weight: bold">print</span>(<span style="background-color: #fff0f0">&quot;Level 4 Home Pressed&quot;</span>)
+       
+  screen<span style="color: #333333">.</span>fill(BLACK)
+  pygame<span style="color: #333333">.</span>display<span style="color: #333333">.</span>flip()
+  tracker<span style="color: #333333">.</span>running <span style="color: #333333">=</span> <span style="color: #007020">False</span>
+  tracker_thread<span style="color: #333333">.</span>join()
+  pygame<span style="color: #333333">.</span>quit()
+  GPIO<span style="color: #333333">.</span>cleanup()
+  </pre></div>
+  
+              </code></pre>
+      </div>
+
+
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="dist/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> -->
+  </body>
+</html>
