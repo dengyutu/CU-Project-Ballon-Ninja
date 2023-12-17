@@ -3,7 +3,7 @@
 *Balloon Ninja* is a dynamic and interactive game developed as part of the ECE 5725 course at Cornell University under the guidance of Professor Joe Skovira. The project, crafted by Yunxuan Xu and Dengyu (Spud) Tu, showcases the practical applications of embedded systems through an engaging gaming experience.
 
 **Technical Details:**
-- **Hardware:** Raspberry Pi 4, Raspberry Pi Camera
+- **Hardware:** Raspberry Pi 4, Raspberry Pi Camera, PiTFT
 - **Software:** pygame, OpenCV
 - **Concept:** Real-time processing and color detection
 
